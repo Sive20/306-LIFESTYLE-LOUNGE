@@ -247,7 +247,6 @@
   .bar-copy h2{ font-size:clamp(2.4rem, 5vw, 3.6rem); }
   .bar-copy p{ color:var(--parchment-dim); line-height:1.8; font-size:1rem; }
   .stat-row{ display:flex; gap:2.5rem; margin-top:.5rem; flex-wrap:wrap; }
-  .stat{ }
   .stat b{ font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--gold-bright); display:block; }
   .stat span{ font-size:.8rem; color:var(--parchment-dim); text-transform:uppercase; letter-spacing:.08em; }
 
@@ -310,6 +309,51 @@
   .reel-play svg{ width:22px; height:22px; fill:var(--gold-bright); margin-left:3px; }
   .reel-frame.playing .reel-play{ opacity:0; pointer-events:none; transform:scale(.85); }
   .reel-hint{ margin-top:1.4rem; color:var(--parchment-dim); font-size:.85rem; letter-spacing:.05em; }
+
+  /* ---------- WEEKEND RECAPS ---------- */
+.recaps{ background:var(--ink-2); }
+.recap-toolbar{
+  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+  margin-bottom:2.8rem;
+}
+.recap-note{
+  font-size:.8rem; color:var(--parchment-dim); line-height:1.5; max-width:360px;
+}
+.recap-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:1.2rem;
+}
+.recap-card{
+  position:relative; aspect-ratio:9/16; overflow:hidden;
+  background:var(--charcoal); border:1px solid var(--line);
+}
+.recap-card video{ width:100%; height:100%; object-fit:cover; background:#000; }
+.recap-remove{
+  position:absolute; top:.6rem; right:.6rem; z-index:3;
+  width:28px; height:28px; border-radius:50%;
+  background:rgba(12,10,8,.8); border:1px solid var(--line);
+  color:var(--parchment); font-size:1rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:border-color .25s, color .25s;
+}
+.recap-remove:hover{ border-color:var(--ember); color:var(--ember); }
+.recap-name{
+  position:absolute; left:.7rem; bottom:.6rem; z-index:2;
+  font-size:.72rem; letter-spacing:.03em; color:var(--parchment-dim);
+  max-width:calc(100% - 1.4rem); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  pointer-events:none;
+}
+.recap-empty{
+  display:none; flex-direction:column; align-items:center; justify-content:center; gap:1rem;
+  padding:4.5rem 2rem; border:1px dashed var(--line); text-align:center;
+  color:var(--parchment-dim);
+}
+.recap-empty.show{ display:flex; }
+.recap-empty svg{ width:38px; height:38px; opacity:.5; stroke:var(--gold-bright); }
+.recap-empty p{
+  font-family:'Bebas Neue', sans-serif; letter-spacing:.08em; font-size:1.15rem; color:var(--parchment-dim);
+}
+.recap-empty span{ font-size:.82rem; max-width:320px; }
+.recap-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
 
   /* ---------- LOCATION / CONTACT ---------- */
   .visit{ background:var(--ink-2); }
@@ -387,6 +431,7 @@
     <a href="#bar">Bar</a>
     <a href="#nightlife">Nightlife</a>
     <a href="#visit">Visit</a>
+    <a href="#recaps">Recaps</a>
   </nav>
   <a class="btn filled" href="https://wa.me/27837191341" target="_blank" rel="noopener">Book a Table</a>
 </header>
@@ -472,7 +517,7 @@
       <h2>Mixed Right, Poured Fast</h2>
       <p>Our bar team runs a tight, fast, ingredient-first program — fresh-shaken margaritas, cold champagne service and a bottle list built for a table that wants to celebrate.</p>
       <div class="stat-row">
-        <div class="stat"><b>12PM–2AM</b><span>Every day</span></div>
+        <div class="stat"><b>10am–Till Late</b><span>Every day</span></div>
         <div class="stat"><b>Ace of Spades</b><span>Champagne Service</span></div>
         <div class="stat"><b>PLUG</b><span>Fridays</span></div>
       </div>
@@ -539,6 +584,35 @@
   </div>
 </section>
 
+<!-- WEEKEND RECAPS -->
+<section class="recaps" id="recaps">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">This Weekend</div>
+        <h2>Weekend Recaps</h2>
+      </div>
+      <p>Fresh clips from the floor, added right from the venue.</p>
+    </div>
+
+    <input type="file" id="recapUpload" accept="video/*" multiple hidden>
+
+    <div class="recap-toolbar">
+      <label for="recapUpload" class="btn filled">Upload Recap Video</label>
+      <button type="button" class="btn" id="recapClear">Clear All</button>
+      <span class="recap-note">Videos you add here are stored in this browser only, on this device — they won't appear for other visitors to the live site. To publish recaps for everyone, send the clips over and they can be built into the page.</span>
+    </div>
+
+    <div class="recap-grid" id="recapGrid"></div>
+
+    <div class="recap-empty" id="recapEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M15 10l4.55-2.5A1 1 0 0121 8.37v7.26a1 1 0 01-1.45.87L15 14M5 6h9a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1z"/></svg>
+      <p>No videos uploaded</p>
+      <span>Upload this weekend's clips above and they'll show up right here.</span>
+    </div>
+  </div>
+</section>
+
 <!-- VISIT -->
 <section class="visit" id="visit">
   <div class="wrap">
@@ -550,7 +624,7 @@
         </div>
         <div class="info-block">
           <div class="eyebrow">Hours</div>
-          <p>12:00 – 02:00</p>
+          <p>10am – Till Late</p>
           <div class="small">Monday – Sunday</div>
         </div>
         <div class="info-block">
@@ -587,9 +661,10 @@
       <a href="#bar">Bar</a>
       <a href="#nightlife">Nightlife</a>
       <a href="#visit">Visit</a>
+      <a href="#recaps">Recaps</a>
     </div>
   </div>
-  <p class="fine-print">306 Lifestyle Lounge · 33 Waterkant St, Cape Town City Centre · 12pm – 2am, daily</p>
+  <p class="fine-print">306 Lifestyle Lounge · 33 Waterkant St, Cape Town City Centre · 10am – Till Late, daily</p>
 </footer>
 
 <a class="wa-fab" href="https://wa.me/27837191341" target="_blank" rel="noopener" aria-label="Book on WhatsApp">
@@ -620,6 +695,142 @@
       reelFrame.classList.remove('playing');
     }
   });
+</script>
+<script>
+  // ---------- WEEKEND RECAPS (local, per-browser storage via IndexedDB) ----------
+  (function(){
+    const DB_NAME = 'lounge306_recaps';
+    const STORE = 'videos';
+    let db;
+
+    function openDB(){
+      return new Promise((resolve, reject) => {
+        if (!('indexedDB' in window)){ reject(new Error('no indexeddb')); return; }
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const d = e.target.result;
+          if (!d.objectStoreNames.contains(STORE)){
+            d.createObjectStore(STORE, { keyPath: 'id' });
+          }
+        };
+        req.onsuccess = (e) => resolve(e.target.result);
+        req.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function addVideo(file){
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readwrite');
+        const id = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+        tx.objectStore(STORE).put({ id, name: file.name, blob: file, ts: Date.now() });
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function getAllVideos(){
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readonly');
+        const req = tx.objectStore(STORE).getAll();
+        req.onsuccess = () => resolve(req.result.sort((a, b) => b.ts - a.ts));
+        req.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function deleteVideo(id){
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readwrite');
+        tx.objectStore(STORE).delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function clearAllVideos(){
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readwrite');
+        tx.objectStore(STORE).clear();
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    async function render(){
+      const grid = document.getElementById('recapGrid');
+      const empty = document.getElementById('recapEmpty');
+      let videos = [];
+      try { videos = await getAllVideos(); } catch (e) { videos = []; }
+
+      grid.innerHTML = '';
+
+      if (!videos.length){
+        empty.classList.add('show');
+        grid.style.display = 'none';
+        return;
+      }
+      empty.classList.remove('show');
+      grid.style.display = 'grid';
+
+      videos.forEach(v => {
+        const url = URL.createObjectURL(v.blob);
+        const card = document.createElement('div');
+        card.className = 'recap-card';
+        const video = document.createElement('video');
+        video.src = url;
+        video.controls = true;
+        video.playsInline = true;
+        video.muted = true;
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'recap-remove';
+        removeBtn.setAttribute('aria-label', 'Remove video');
+        removeBtn.dataset.id = v.id;
+        removeBtn.innerHTML = '&times;';
+        const nameTag = document.createElement('div');
+        nameTag.className = 'recap-name';
+        nameTag.textContent = v.name || 'Recap clip';
+        card.appendChild(video);
+        card.appendChild(removeBtn);
+        card.appendChild(nameTag);
+        grid.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        db = await openDB();
+      } catch (e) {
+        document.getElementById('recapEmpty').classList.add('show');
+        return;
+      }
+      render();
+
+      document.getElementById('recapUpload').addEventListener('change', async (e) => {
+        const files = Array.from(e.target.files || []);
+        for (const f of files){
+          if (f.type.startsWith('video/')) await addVideo(f);
+        }
+        e.target.value = '';
+        render();
+      });
+
+      document.getElementById('recapGrid').addEventListener('click', async (e) => {
+        const btn = e.target.closest('.recap-remove');
+        if (!btn) return;
+        await deleteVideo(btn.dataset.id);
+        render();
+      });
+
+      document.getElementById('recapClear').addEventListener('click', async () => {
+        const videos = await getAllVideos();
+        if (!videos.length) return;
+        if (confirm('Remove all uploaded recap videos from this browser?')){
+          await clearAllVideos();
+          render();
+        }
+      });
+    });
+  })();
 </script>
 
 </body>
