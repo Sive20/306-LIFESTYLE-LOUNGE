@@ -249,6 +249,12 @@
   .stat-row{ display:flex; gap:2.5rem; margin-top:.5rem; flex-wrap:wrap; }
   .stat b{ font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--gold-bright); display:block; }
   .stat span{ font-size:.8rem; color:var(--parchment-dim); text-transform:uppercase; letter-spacing:.08em; }
+  .stat-logo{
+  width: 100px;
+  height: auto;
+  margin-top: .4rem;
+  display: block;
+  }
 
   .partner-strip{
     margin-top:2.5rem; padding:1.4rem 1.6rem;
@@ -313,9 +319,10 @@
   /* ---------- WEEKEND RECAPS ---------- */
 .recaps{ background:var(--ink-2); }
 .recap-toolbar{
-  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+  display:none; align-items:center; gap:1.2rem; flex-wrap:wrap;
   margin-bottom:2.8rem;
 }
+.recap-toolbar .is-admin{ display:flex; }
 .recap-note{
   font-size:.8rem; color:var(--parchment-dim); line-height:1.5; max-width:360px;
 }
@@ -518,7 +525,7 @@
       <p>Our bar team runs a tight, fast, ingredient-first program — fresh-shaken margaritas, cold champagne service and a bottle list built for a table that wants to celebrate.</p>
       <div class="stat-row">
         <div class="stat"><b>10am–Till Late</b><span>Every day</span></div>
-        <div class="stat"><b>1942</b><span>Champagne Service</span></div>
+        <div class="stat"><b>1942</b><img src="don-julio-logo.png" alt="Don Julio 1942" class="stat-logo"></div>
         <div class="stat"><b>PLUG</b><span>Fridays</span></div>
       </div>
       <div class="partner-strip">
@@ -597,7 +604,7 @@
 
     <input type="file" id="recapUpload" accept="video/*" multiple hidden>
 
-    <div class="recap-toolbar">
+    <div class="recap-toolbar" id="recapToolbar">
       <label for="recapUpload" class="btn filled">Upload Recap Video</label>
       <button type="button" class="btn" id="recapClear">Clear All</button>
       <span class="recap-note">Videos you add here are stored in this browser only, on this device — they won't appear for other visitors to the live site. To publish recaps for everyone, send the clips over and they can be built into the page.</span>
@@ -701,7 +708,18 @@
   (function(){
     const DB_NAME = 'lounge306_recaps';
     const STORE = 'videos';
-    let db;
+        let db;
+    const ADMIN_KEY = 'letme306in'; // change this to your own secret word
+
+    function checkAdmin(){
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('key') === ADMIN_KEY){
+        localStorage.setItem('recap_admin', '1');
+      }
+      if (localStorage.getItem('recap_admin') === '1'){
+        document.getElementById('recapToolbar').classList.add('is-admin');
+      }
+    }
 
     function openDB(){
       return new Promise((resolve, reject) => {
@@ -803,6 +821,7 @@
         document.getElementById('recapEmpty').classList.add('show');
         return;
       }
+      checkAdmin();
       render();
 
       document.getElementById('recapUpload').addEventListener('change', async (e) => {
