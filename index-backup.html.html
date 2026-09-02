@@ -249,12 +249,6 @@
   .stat-row{ display:flex; gap:2.5rem; margin-top:.5rem; flex-wrap:wrap; }
   .stat b{ font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--gold-bright); display:block; }
   .stat span{ font-size:.8rem; color:var(--parchment-dim); text-transform:uppercase; letter-spacing:.08em; }
-  .stat-logo{
-  width: 100px;
-  height: auto;
-  margin-top: .4rem;
-  display: block;
-  }
 
   .partner-strip{
     margin-top:2.5rem; padding:1.4rem 1.6rem;
@@ -315,14 +309,12 @@
   .reel-play svg{ width:22px; height:22px; fill:var(--gold-bright); margin-left:3px; }
   .reel-frame.playing .reel-play{ opacity:0; pointer-events:none; transform:scale(.85); }
   .reel-hint{ margin-top:1.4rem; color:var(--parchment-dim); font-size:.85rem; letter-spacing:.05em; }
-
   /* ---------- WEEKEND RECAPS ---------- */
 .recaps{ background:var(--ink-2); }
 .recap-toolbar{
-  display:none; align-items:center; gap:1.2rem; flex-wrap:wrap;
+  display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
   margin-bottom:2.8rem;
 }
-.recap-toolbar .is-admin{ display:flex; }
 .recap-note{
   font-size:.8rem; color:var(--parchment-dim); line-height:1.5; max-width:360px;
 }
@@ -361,6 +353,7 @@
 }
 .recap-empty span{ font-size:.82rem; max-width:320px; }
 .recap-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
+
 
   /* ---------- LOCATION / CONTACT ---------- */
   .visit{ background:var(--ink-2); }
@@ -489,7 +482,7 @@
         <img src="jollof-lamb-rice.jpg" alt="Spiced jollof rice with braised lamb and soft-boiled egg">
         <span class="dish-tag">African</span>
         <div class="dish-info">
-          <h3>Asun peppered Rice</h3>
+          <h3>Braised Lamb Jollof</h3>
           <span>Smoked pepper rice, soft egg</span>
         </div>
       </div>
@@ -499,86 +492,6 @@
         <div class="dish-info">
           <h3>Seafood Linguine</h3>
           <span>Prawn, crab, calabrian chilli cream</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Swallow.jpg" alt="Traditional African swallow with assorted soup and vegetables">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Swallow, Egusi & Pando</h3>
-          <span>Egusi soup, Crayfish & Locust beans "iru", Spinach etc & Pando Yam</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Ram Suya.JPG" alt="Spicy grilled ram suya with onions and peppers">
-        <span class="dish-tag">Continental</span>
-        <div class="dish-info">
-          <h3>Ram Suya</h3>
-          <span>Spicy grilled ram suya with onions and peppers</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Seafood noodles.JPG" alt="Seafood noodles with prawns, calamari and vegetables in a light sauce">
-        <span class="dish-tag">Continental</span>
-        <div class="dish-info">
-          <h3>Seafood Noodles</h3>
-          <span>Prawn, calamari, vegetables in a light sauce</span>
-        </div>
-      </div>
-    <div class="dish-card">
-        <img src="Singapore noodles.JPG" alt="Singapore noodles with chicken and vegetables in a spicy sauce">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Singapore Noodles</h3>
-          <span>Chicken, vegetables in a spicy sauce</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Seafood okra.jpg" alt="Seafood okra with prawns, calamari and vegetables in a light sauce">
-        <span class="dish-tag">Continental</span>
-        <div class="dish-info">
-          <h3>Seafood Okra</h3>
-          <span>Prawn, calamari, vegetables in a light sauce</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Yamarita and egg sauce.JPG" alt="Yamarita with egg sauce and vegetables">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Yamarita and Egg Sauce</h3>
-          <span>Yamarita with egg sauce and vegetables</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Asun penny pasta.JPG" alt="Asun penny pasta with chicken and vegetables">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Asun Penny Pasta</h3>
-          <span>Flamed grilled goat meat in rich tomato or pepper sauce</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Ghana wakay rice.JPG" alt="Ghana wakay rice with smoked pepper and soft egg">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Ghana Wakay Rice</h3>
-          <span>Rice and beans cooked with sorghum leaves, spaghetti, coleslaw and boiled eggs</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Grilled cat fish.JPG" alt="Grilled cat fish with with fries and a side of pepper sauce">
-        <span class="dish-tag">Continental</span>
-        <div class="dish-info">
-          <h3>Grilled Cat Fish</h3>
-          <span>Grilled cat fish with fries and a side of pepper sauce</span>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="Yam and egg sauce.JPG" alt="Yam and egg sauce with vegetables">
-        <span class="dish-tag">African</span>
-        <div class="dish-info">
-          <h3>Yam and Egg Sauce</h3>
-          <span>Yam and egg sauce with minced sauce </span>
         </div>
       </div>
       <div class="dish-card">
@@ -604,8 +517,8 @@
       <h2>Mixed Right, Poured Fast</h2>
       <p>Our bar team runs a tight, fast, ingredient-first program — fresh-shaken margaritas, cold champagne service and a bottle list built for a table that wants to celebrate.</p>
       <div class="stat-row">
-        <div class="stat"><b>10am–Till Late</b><span>Every day</span></div>
-        <div class="stat"><b>1942</b><img src="don-julio-logo.png" alt="Don Julio 1942" class="stat-logo"></div>
+        <div class="stat"><b>12PM–2AM</b><span>Every day</span></div>
+        <div class="stat"><b>Ace of Spades</b><span>Champagne Service</span></div>
         <div class="stat"><b>PLUG</b><span>Fridays</span></div>
       </div>
       <div class="partner-strip">
@@ -684,7 +597,7 @@
 
     <input type="file" id="recapUpload" accept="video/*" multiple hidden>
 
-    <div class="recap-toolbar" id="recapToolbar">
+    <div class="recap-toolbar">
       <label for="recapUpload" class="btn filled">Upload Recap Video</label>
       <button type="button" class="btn" id="recapClear">Clear All</button>
       <span class="recap-note">Videos you add here are stored in this browser only, on this device — they won't appear for other visitors to the live site. To publish recaps for everyone, send the clips over and they can be built into the page.</span>
@@ -711,7 +624,7 @@
         </div>
         <div class="info-block">
           <div class="eyebrow">Hours</div>
-          <p>10am – Till Late</p>
+          <p>10am – till late</p>
           <div class="small">Monday – Sunday</div>
         </div>
         <div class="info-block">
@@ -748,10 +661,9 @@
       <a href="#bar">Bar</a>
       <a href="#nightlife">Nightlife</a>
       <a href="#visit">Visit</a>
-      <a href="#recaps">Recaps</a>
     </div>
   </div>
-  <p class="fine-print">306 Lifestyle Lounge · 33 Waterkant St, Cape Town City Centre · 10am – Till Late, daily</p>
+  <p class="fine-print">306 Lifestyle Lounge · 33 Waterkant St, Cape Town City Centre · 10am – till late, daily</p>
 </footer>
 
 <a class="wa-fab" href="https://wa.me/27837191341" target="_blank" rel="noopener" aria-label="Book on WhatsApp">
@@ -788,18 +700,7 @@
   (function(){
     const DB_NAME = 'lounge306_recaps';
     const STORE = 'videos';
-        let db;
-    const ADMIN_KEY = 'letme306in'; // change this to your own secret word
-
-    function checkAdmin(){
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('key') === ADMIN_KEY){
-        localStorage.setItem('recap_admin', '1');
-      }
-      if (localStorage.getItem('recap_admin') === '1'){
-        document.getElementById('recapToolbar').classList.add('is-admin');
-      }
-    }
+    let db;
 
     function openDB(){
       return new Promise((resolve, reject) => {
@@ -901,7 +802,6 @@
         document.getElementById('recapEmpty').classList.add('show');
         return;
       }
-      checkAdmin();
       render();
 
       document.getElementById('recapUpload').addEventListener('change', async (e) => {
@@ -931,6 +831,5 @@
     });
   })();
 </script>
-
 </body>
 </html>
