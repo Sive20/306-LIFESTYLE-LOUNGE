@@ -236,6 +236,49 @@
   .dish-info h3{ font-size:1.5rem; letter-spacing:.02em; margin-bottom:.3rem; }
   .dish-info span{ font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--parchment-dim); font-size:1rem; }
 
+  /* ---------- MENU BUTTONS ---------- */
+.menu-buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1rem;
+  margin-top:3rem;
+  flex-wrap:wrap;
+}
+
+.menu-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:220px;
+  padding:1rem 1.6rem;
+  border:1px solid var(--gold);
+  color:var(--gold-bright);
+  background:transparent;
+  font-size:.82rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+
+.menu-btn:hover{
+  background:var(--gold);
+  color:var(--ink);
+  transform:translateY(-2px);
+}
+
+@media (max-width:560px){
+  .menu-buttons{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .menu-btn{
+    width:100%;
+    min-width:0;
+  }
+}
+
   /* ---------- BAR / COCKTAILS ---------- */
   .bar{ background:var(--ink); }
   .bar-grid{
@@ -582,14 +625,28 @@
         </div>
       </div>
       <div class="dish-card">
-        <img src="dessert-board.jpg" alt="Warm sweet fritters served with custard, amasi and strawberries">
+        <img src="dessert-board.jpg" alt="Warm sweet fritters served with custard, peak milk and strawberries">
         <span class="dish-tag">To Finish</span>
         <div class="dish-info">
-          <h3>Fritters &amp; Custard</h3>
-          <span>Amasi, brown sugar, strawberry</span>
+          <h3>Pap & Akara</h3>
+          <span>Peak milk, brown sugar, strawberry</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+ <!-- MENU BUTTONS -->
+    <div class="menu-buttons">
+      <a href="nigerian-menu.jpg" class="menu-btn" target="_blank">
+        Nigerian Food Menu
+      </a>
+
+      <a href="continental-menu.jpg" class="menu-btn" target="_blank">
+        Continental Food Menu
+      </a>
+    </div>
+
   </div>
 </section>
 
