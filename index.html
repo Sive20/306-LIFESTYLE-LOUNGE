@@ -145,6 +145,9 @@
     line-height:.85;
   }
   .hero-title .word{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
     font-size:clamp(1.4rem, 3.4vw, 2.4rem);
     letter-spacing:.32em;
     margin-top:.4rem;
@@ -168,16 +171,24 @@
   }
   .scroll-cue::after{ content:""; width:1px; height:40px; background:var(--gold); display:block; }
 
-  /* ---------- OFFICIAL 306 LOGO ---------- */
+
+
+/* ---------- OFFICIAL 306 LOGO ---------- */
 
 .hero-logo{
-  display:block;
-  width:clamp(180px, 30vw, 360px);
-  height:auto;
-  object-fit:contain;
-  object-position:left center;
+  display: block;
+  width: clamp(180px, 30vw, 360px);
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+
   margin: 1.5rem 0 .2rem 0;
-  transition: translateY(15px);
+
+  /* Move ONLY the logo downward */
+  transform: translateY(200px);
+
+  /* Smooth movement if you later change it */
+  transition: transform .3s ease;
 }
 
   /* ---------- SECTION GENERIC ---------- */
@@ -507,7 +518,7 @@
     <div class="eyebrow">Cape Town CBD · Dining &amp; Nightlife</div>
     <h1 class="hero-title">
   <img src="306 logo.png" alt="306 Lifestyle Lounge logo" class="hero-logo">
-  <span class="word">Lifestyle Lounge</span>
+  <span class="word">Lifestyle</span>
 </h1>
     <p class="hero-sub">African &amp; continental flavour by day, the best night out in the city after dark.</p>
     <div class="hero-ctas">
