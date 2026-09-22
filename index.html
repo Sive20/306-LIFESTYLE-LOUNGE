@@ -168,6 +168,18 @@
   }
   .scroll-cue::after{ content:""; width:1px; height:40px; background:var(--gold); display:block; }
 
+  /* ---------- OFFICIAL 306 LOGO ---------- */
+
+.hero-logo{
+  display:block;
+  width:clamp(180px, 30vw, 360px);
+  height:auto;
+  object-fit:contain;
+  object-position:left center;
+  margin: 1.5rem 0 .2rem 0;
+  transition: translateY(15px);
+}
+
   /* ---------- SECTION GENERIC ---------- */
   section{ position:relative; padding:7rem 0; }
   .divider-strip{
@@ -493,7 +505,10 @@
   </video>
   <div class="hero-content">
     <div class="eyebrow">Cape Town CBD · Dining &amp; Nightlife</div>
-    <h1 class="hero-title"><span class="stripe-fill num">306</span><span class="word">Lifestyle</span></h1>
+    <h1 class="hero-title">
+  <img src="306 logo.png" alt="306 Lifestyle Lounge logo" class="hero-logo">
+  <span class="word">Lifestyle Lounge</span>
+</h1>
     <p class="hero-sub">African &amp; continental flavour by day, the best night out in the city after dark.</p>
     <div class="hero-ctas">
       <a class="btn filled" href="https://wa.me/27837191341" target="_blank" rel="noopener">Reserve on WhatsApp</a>
