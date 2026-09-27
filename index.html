@@ -200,28 +200,154 @@
     mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
   }
 
-  /* ---------- MISSION ---------- */
-  .mission{ background:var(--ink); }
-  .mission-grid{
-    display:grid; grid-template-columns:1.1fr .9fr; gap:5vw; align-items:start;
+  /* ---------- ABOUT US ---------- */
+
+.about {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::after {
+  content: "306";
+  position: absolute;
+  right: -2vw;
+  bottom: -6rem;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(14rem, 35vw, 34rem);
+  line-height: 1;
+
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 160, 74, 0.07);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.about-header {
+  margin-bottom: 4.5rem;
+}
+
+.about-header .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.about-header h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  max-width: 900px;
+  line-height: .95;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
+}
+
+/* LEFT SIDE */
+
+.about-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(7rem, 15vw, 12rem);
+  line-height: .8;
+  color: var(--gold-bright);
+  letter-spacing: .02em;
+}
+
+.about-line {
+  width: 70px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2rem 0;
+}
+
+.about-lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.4;
+  color: var(--parchment);
+  max-width: 420px;
+}
+
+/* RIGHT SIDE */
+
+.about-copy {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(2rem, 5vw, 4rem);
+}
+
+.about-copy p {
+  color: var(--parchment-dim);
+  font-size: 1.02rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.about-copy p:first-child {
+  font-size: 1.2rem;
+  color: var(--parchment);
+}
+
+.about-copy strong {
+  color: var(--gold-bright);
+  font-weight: 400;
+}
+
+.about-signature {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: var(--parchment);
+}
+
+.about-signature span {
+  display: block;
+  color: var(--gold-bright);
+  margin-top: .35rem;
+}
+
+/* ABOUT MOBILE */
+
+@media (max-width: 800px) {
+
+  .about-header {
+    margin-bottom: 3rem;
   }
-  .mission-quote{
-    font-family:'Fraunces', serif;
-    font-style:italic; font-weight:400;
-    font-size:clamp(1.6rem, 2.6vw, 2.3rem);
-    line-height:1.35;
-    color:var(--parchment);
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .mission-quote em{ color:var(--gold-bright); font-style:italic; }
-  .mission-side p{
-    font-size:1.02rem; line-height:1.8; color:var(--parchment-dim); margin-bottom:1.3rem;
+
+  .about-number {
+    font-size: 8rem;
   }
-  .mission-side .num-306{
-    font-family:'Bebas Neue', sans-serif;
-    font-size:5rem;
-    line-height:1;
-    margin-bottom:1rem;
+
+  .about-copy {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 2.5rem;
   }
+
+  .about::after {
+    font-size: 18rem;
+    bottom: -3rem;
+  }
+}
 
   /* ---------- KITCHEN / MENU ---------- */
   .kitchen{ background:var(--ink-2); }
@@ -501,6 +627,7 @@
 <header class="nav" id="siteNav">
   <div class="brandmark">306 <span>LIFESTYLE LOUNGE</span></div>
   <nav class="links">
+    <a href="#about">About</a>
     <a href="#kitchen">Kitchen</a>
     <a href="#bar">Bar</a>
     <a href="#nightlife">Nightlife</a>
@@ -532,15 +659,68 @@
 
 <div class="divider-strip"></div>
 
-<!-- MISSION -->
-<section class="mission" id="about">
-  <div class="wrap mission-grid">
-    <p class="mission-quote">We serve high-quality <em>African &amp; continental</em> dishes in a stylish, inviting room — then turn the lights down and give Cape Town the <em>nightlife experience</em> it keeps coming back for.</p>
-    <div class="mission-side">
-      <div class="num-306 stripe-fill">306</div>
-      <p>Set in the vibrant heart of the CBD, 306 Lifestyle Lounge runs as two experiences under one roof: a kitchen built around bold, authentic African cooking alongside continental favourites, and a lounge rated among the city's best for atmosphere, sound and service.</p>
-      <p>Waterkant Street. Open every day, from lunch service through to last call.</p>
+<!-- ABOUT US -->
+<section class="about" id="about">
+  <div class="wrap">
+
+    <div class="about-header">
+      <div class="eyebrow">Our Story</div>
+      <h2>More Than A Lounge.<br>
+        <span class="stripe-fill">It's A Lifestyle.</span>
+      </h2>
     </div>
+
+    <div class="about-grid">
+
+      <div class="about-left">
+        <div class="about-number">306</div>
+        <div class="about-line"></div>
+
+        <p class="about-lead">
+          Where exceptional food, premium drinks, music and nightlife
+          come together under one roof.
+        </p>
+      </div>
+
+      <div class="about-copy">
+
+        <p>
+          Located in the heart of Cape Town's CBD,
+          <strong>306 Lifestyle Lounge</strong> is a space created for
+          people to eat, connect, celebrate and experience Cape Town
+          differently.
+        </p>
+
+        <p>
+          Our kitchen celebrates bold African and Nigerian flavours
+          alongside continental favourites, carefully prepared and
+          served in a stylish and welcoming environment. Whether you're
+          joining us for lunch, dinner or drinks with friends, the 306
+          experience begins from the moment you walk through the door.
+        </p>
+
+        <p>
+          As the sun goes down, the atmosphere changes. The dining
+          experience gives way to resident DJs, premium bottle service,
+          great music and unforgettable nights.
+        </p>
+
+        <p>
+          But 306 is about more than food and nightlife. It's about
+          <strong>culture, connection and lifestyle</strong> — a place
+          where Cape Town meets Africa, good food turns into great
+          nights, and every visit has the potential to become a memory.
+        </p>
+
+        <div class="about-signature">
+          Come for the food. Stay for the atmosphere.
+          <span>Live the 306 lifestyle.</span>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
 
